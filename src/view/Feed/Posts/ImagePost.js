@@ -2,7 +2,9 @@ import React from 'react';
 
 const ImagePost = () => {
     return (
-        <div>Image</div>
+        <div className="image">
+            <img src="http://via.placeholder.com/450x300" />
+        </div>
     );
 };
 

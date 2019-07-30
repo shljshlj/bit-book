@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PostList from './Posts/PostList';
 
+import './FeedPage.css';
+
 class FeedPage extends Component {
     state = {
-        posts: []
+        posts: [{type: 'video'}, {type: 'image'}, {type: 'text'}]
     }
 
     render() {
@@ -11,7 +13,7 @@ class FeedPage extends Component {
 
         return (
             <>
-                {!posts.length ? 'Nothing in feed' : <PostList />}    
+                {!posts.length ? 'Nothing in feed' : <PostList posts={posts}/>}    
             </>
         );
     }

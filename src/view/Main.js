@@ -1,9 +1,14 @@
 import React from 'react';
-// import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+import FeedPage from './Feed/FeedPage';
 
 const Main = () => {
     return (
-        <main className="ui container">Nothing in feed</main>
+        <main className="ui container">
+            <Switch>
+                <Route exact path="/" component={FeedPage} />
+            </Switch>
+        </main>
     );
 };
 

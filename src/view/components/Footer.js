@@ -2,7 +2,11 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer>Footer</footer>
+        <footer>
+            <div className="ui container">
+                &copy; {new Date().getFullYear()} Visnja
+            </div>
+        </footer>
     );
 };
 

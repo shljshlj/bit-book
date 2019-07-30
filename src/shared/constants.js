@@ -1,0 +1,1 @@
+export const BASE_API_ENDPOINT = 'https://book-api.hypetech.xyz/v1';

@@ -13,12 +13,12 @@ const PostItem = ({ post }) => {
     }
 
     return (
-        <Link className="ui link centered card card-link">
+        <Link to="/" className="ui link centered card card-link">
             {postContent[post.type]}
             <div className="content">
                 <span className="right floated">
                     <i className="comment icon"></i>
-                    <Link to="/">3 comments</Link>
+                    {post.commentsNum} comments
                 </span>
                 {post.type} post
             </div>

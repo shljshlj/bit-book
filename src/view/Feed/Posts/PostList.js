@@ -10,7 +10,6 @@ class PostList extends Component {
 
     fetchPosts = async () => {
         const posts = await postService.fetchPosts();
-        console.log(posts);
         this.setState({ posts });
     }
 

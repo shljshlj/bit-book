@@ -1,16 +1,21 @@
 import bitBookApi from '../shared/api';
 import Post from '../models/Post';
+import { validationService } from './ValidatonService';
 
 class PostService {
     async fetchPosts() {
-        const response = await bitBookApi.get('./posts');
+        const response = await bitBookApi.get('./posts?_embed=comments');
 
-        return response.data.map(post => {
+        const listOfPosts = response.data.map(post => {
             const { videoUrl, imageUrl, text } = post;
-            const content = videoUrl ? videoUrl : imageUrl ? imageUrl : text;
+            const validVideoUrl = validationService.validateVideoUrl(videoUrl);
+            const content = validVideoUrl ? validVideoUrl : imageUrl ? imageUrl : text;
+            const commentsNum = post.comments.length;
             
-            return new Post(post, content);
+            return new Post(post, content, commentsNum);
         });
+
+        return listOfPosts;
     }
 }
 

@@ -3,7 +3,7 @@ import React from 'react';
 const ImagePost = ({ content }) => {
     return (
         <div className="image">
-            <img src={content} />
+            <img src={content} alt="some description" />
         </div>
     );
 };

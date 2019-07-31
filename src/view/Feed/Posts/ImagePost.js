@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ImagePost = () => {
+const ImagePost = ({ content }) => {
     return (
         <div className="image">
-            <img src="http://via.placeholder.com/450x300" />
+            <img src={content} />
         </div>
     );
 };

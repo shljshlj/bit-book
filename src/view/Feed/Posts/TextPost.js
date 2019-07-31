@@ -1,11 +1,9 @@
 import React from 'react';
 
-const TextPost = () => {
+const TextPost = ({ content }) => {
     return (
         <div className="content">
-            <div className="header">Cute Dog</div>
-            <p>Hello this is my first textual post!</p>
-            <p>I definitely don't want to be the last one too!</p>
+            <p>{content}</p>
         </div>
     );
 };

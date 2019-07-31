@@ -4,25 +4,25 @@ import VideoPost from './VideoPost';
 import TextPost from './TextPost';
 import ImagePost from './ImagePost';
 
-const PostItem = props => {
+const PostItem = ({ post }) => {
 
     const postContent = {
-        video: <VideoPost />,
-        image: <ImagePost />,
-        text: <TextPost />
+        video: <VideoPost content={post.content} />,
+        image: <ImagePost content={post.content} />,
+        text: <TextPost content={post.content} />
     }
 
     return (
-        <div className="ui centered card">
-            {postContent[props.type]}
+        <Link className="ui link centered card card-link">
+            {postContent[post.type]}
             <div className="content">
                 <span className="right floated">
                     <i className="comment icon"></i>
                     <Link to="/">3 comments</Link>
                 </span>
-                Post Type
+                {post.type} post
             </div>
-        </div>
+        </Link>
     );
 };
 

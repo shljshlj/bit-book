@@ -1,10 +1,10 @@
 import React from 'react';
 
-const VideoPost = (props) => {
+const VideoPost = ({ content }) => {
     return (
         <div className="content">
             <div className="iframe-container">
-                <iframe src="https://www.youtube.com/embed/2Z19GXXtUkU" />
+                <iframe title="video" src={content} />
             </div>
         </div>
     );

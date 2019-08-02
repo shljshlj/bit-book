@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CommentItem = ({ comment }) => {
+const CommentItem = ({ comment, user }) => {
     return (
         <div className="comment">
             <Link to="/" className="avatar">
-                <img src="https://semantic-ui.com/images/avatar/small/jenny.jpg" alt="user avatar" />
+                <img src={user.avatarUrl} alt="user avatar" />
             </Link>
 
             <div className="content">
-                <Link to="/" className="author">Matt</Link>
+                <Link to={`/people/${user.id}`} className="author">{`${user.name.first} ${user.name.last}`}</Link>
                 <div className="metadata">
                     <span className="date">Today at 5:42PM</span>
                 </div>

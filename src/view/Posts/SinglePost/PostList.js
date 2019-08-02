@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PostItem from './PostItem';
-import { postService } from '../../../services/PostService';
+import { postService } from '../../../services/postService';
 
 
 class PostList extends Component {
@@ -19,6 +19,7 @@ class PostList extends Component {
 
     render() {
         const { posts } = this.state;
+        
         if (!posts.length) return <div>Nothing in feed</div>
 
         return (

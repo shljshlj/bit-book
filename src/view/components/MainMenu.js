@@ -1,14 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
-const MainMenu = () => {
+const MainMenu = (props) => {
+    const getClassName = path => {
+        return props.location.pathname === path ? 'active item' : 'item'; 
+    }
+
     return (
         <div className="right menu">
-            <Link to="/" className="item">Feed</Link>
-            <Link to="/people" className="item">People</Link>
-            <Link to="/profile" className="item">Profile</Link>
+            <Link to="/" className={getClassName('/')}>Feed</Link>
+            <Link to="/people" className={getClassName('/people')}>People</Link>
+            <Link to="/profile" className={getClassName('/profile')}>Profile</Link>
         </div>
     );
 };
 
-export default MainMenu;
+export default withRouter(MainMenu);

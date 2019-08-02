@@ -8,3 +8,10 @@ export default axios.create({
         'x-api-key': process.env.REACT_APP_BOOK_API_KEY
     }
 });
+
+
+class AxiosBuilder {
+    get(api, endpoint, options = {}) {
+        return api.get(endpoint, options)
+    }
+}

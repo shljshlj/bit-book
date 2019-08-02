@@ -1,6 +1,6 @@
 class Post {
     constructor({ id, userId, sid, createdAt, type}, content, commentsNum) {
-        this.id = id;
+        this.postId = id;
         this.userId = userId;
         this.sid = sid;
         this.createAt = createdAt;

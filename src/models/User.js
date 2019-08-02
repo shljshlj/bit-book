@@ -8,6 +8,10 @@ class User {
         this.name = name;
         this.about = about;
     }
+
+    getFullName() {
+        return this.name.first + ' ' + this.name.last;
+    }
 }
 
 export default User;

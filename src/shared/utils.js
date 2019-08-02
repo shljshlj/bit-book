@@ -1,7 +1,12 @@
-const ordinal = n => {
-    return n + (
-    n%10 == 1 && n%100 != 11 ? 'st' : 
-    n%10 == 2 && n%100 != 12 ? 'nd' : 
-    n%10 == 3 && n%100 != 13 ? 'rd' : 'th'
-    );
-};
+import moment from 'moment';
+
+export const getCalendarTimeFrom = (prevDate, nextDate) => {
+    const isSameYear = new Date(prevDate).getFullYear() === new Date(nextDate).getFullYear();
+    const diffDays = moment(prevDate).diff(moment(nextDate), 'days', true);
+
+    const retVal = isSameYear ? diffDays < -6 ? moment(prevDate).format("MMMM DD") :
+        moment(prevDate).calendar(moment(nextDate)) :
+        moment(prevDate).format("MMMM DD, YYYY");
+
+    return retVal;
+}

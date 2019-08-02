@@ -1,31 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CommentItem from './CommentItem';
 
-class CommentList extends Component {
-    render() {
-        return (
-            <div className="ui comments">
-                <form className="ui reply form">
-                    <div className="field">
-                        <textarea></textarea>
-                    </div>
-                    <div className="ui blue labeled submit icon button">
-                        <i className="icon edit"></i> Add Reply
-                    </div>
-                </form>
+const CommentList = ({ comments }) => {
+    if (!comments.length) return <div>No comments yet</div>;
 
-                <h3 className="ui dividing header">Comments</h3>
-                <CommentItem />
-                <CommentItem />
-                <CommentItem />
-                <CommentItem />
-                <CommentItem />
-                <CommentItem />
-                <CommentItem />
-                <CommentItem />
-            </div>
-        );
-    }
-}
+    return (
+        <>
+            {comments.map(comment => <CommentItem key={comment.sid} comment={comment}/>)}
+        </>
+    );
+};
 
 export default CommentList;

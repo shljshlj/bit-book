@@ -1,5 +1,6 @@
 import bitBookApi from '../shared/api';
 import Post from '../models/Post';
+import Comment from '../models/Comment';
 import { validationService } from './validatonService';
 
 class PostService {
@@ -18,12 +19,13 @@ class PostService {
             const { videoUrl, imageUrl, text, comments } = post;
             const validVideoUrl = validationService.validateVideoUrl(videoUrl);
             const content = validVideoUrl ? validVideoUrl : imageUrl ? imageUrl : text;
-            const commentsNum = comments ? comments.length : null;
+            const publicComments = comments.filter(comment => comment.isPublic);
+            const commentsNum = publicComments ? publicComments.length : null;
 
             return new Post(post, content, commentsNum);
         });
 
-        console.log(listOfPosts);
+        // console.log(listOfPosts);
         return listOfPosts;
     }
 
@@ -34,14 +36,19 @@ class PostService {
         const { videoUrl, imageUrl, text, comments } = data;
         const validVideoUrl = validationService.validateVideoUrl(videoUrl);
         const content = validVideoUrl ? validVideoUrl : imageUrl ? imageUrl : text;
+        
         const commentsNum = comments ? comments.length : null;
 
         return new Post(data, content, commentsNum);
     }
 
-    async fetchComments(postId) {
+    async fetchSinglePostComments(postId) {
         const endpoint = `/posts/${postId}/comments`;
-        const response = await bitBookApi.get()
+        const response = await bitBookApi.get(endpoint);
+
+        const listOfComments = response.data.map(comment => new Comment(comment));
+        
+        return listOfComments;
     }
 }
 

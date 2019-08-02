@@ -1,5 +1,5 @@
 class Post {
-    constructor({ id, userId, sid, createdAt, type}, content, commentsNum) {
+    constructor({ id, userId, sid, createdAt, type }, content, commentsNum) {
         this.postId = id;
         this.userId = userId;
         this.sid = sid;

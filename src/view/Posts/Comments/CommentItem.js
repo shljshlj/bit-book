@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CommentItem = () => {
+const CommentItem = ({ comment }) => {
     return (
         <div className="comment">
             <Link to="/" className="avatar">
@@ -14,7 +14,7 @@ const CommentItem = () => {
                     <span className="date">Today at 5:42PM</span>
                 </div>
                 <div className="text">
-                    How artistic!
+                    {comment.body}
                 </div>
                 <div className="actions">
                     <Link to="/" className="reply">Reply</Link>

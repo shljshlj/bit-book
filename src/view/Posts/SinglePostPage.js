@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { postService } from '../../services/postService';
 import PostContent from './SinglePost/PostContent';
-import CommentList from './Comments/CommentList';
+import Comments from './Comments';
 
 class SinglePostPage extends Component {
     state = {
-        post: null
+        post: null,
+        userId: null
     }
 
     fetchPost = async () => {
         const postId = this.props.match.params.postId;
         const post = await postService.fetchSinglePost(postId);
-        this.setState({ post });
+        const userId = post.userId;
+
+        this.setState({ post, userId });
     }
 
     componentDidMount() {
@@ -19,7 +22,8 @@ class SinglePostPage extends Component {
     }
 
     render() {
-        const { post } = this.state;
+        const { post, userId } = this.state;
+        const postId = this.props.match.params.postId;
 
         if (!post) return <div>Loading...</div>
 
@@ -29,7 +33,7 @@ class SinglePostPage extends Component {
                     <PostContent type={post.type} content={post.content} />
                 </div>
                 <div className="ui section divider"></div>
-                <CommentList />
+                <Comments postId={postId} userId={userId}/>
             </>
         );
     }

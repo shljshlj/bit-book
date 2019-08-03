@@ -1,3 +1,4 @@
+import axios from 'axios';
 import bitBookApi from '../shared/api';
 import User from '../models/User';
 
@@ -17,6 +18,11 @@ class UserService {
 
         const userObj = new User(response.data);
         return userObj;
+    }
+
+    async fetchMultipleUsers(arrayOfUserIds) {
+        const response = await axios.all(arrayOfUserIds.map(id => userService.fetchSingleUser(id)));
+        return response;
     }
 }
 

@@ -5,16 +5,14 @@ import Comments from './Comments';
 
 class SinglePostPage extends Component {
     state = {
-        post: null,
-        userId: null
+        post: null
     }
 
     fetchPost = async () => {
         const postId = this.props.match.params.postId;
         const post = await postService.fetchSinglePost(postId);
-        const userId = post.userId;
 
-        this.setState({ post, userId });
+        this.setState({ post });
     }
 
     componentDidMount() {
@@ -22,7 +20,7 @@ class SinglePostPage extends Component {
     }
 
     render() {
-        const { post, userId } = this.state;
+        const { post } = this.state;
         const postId = this.props.match.params.postId;
 
         if (!post) return <div>Loading...</div>
@@ -33,7 +31,7 @@ class SinglePostPage extends Component {
                     <PostContent type={post.type} content={post.content} />
                 </div>
                 <div className="ui section divider"></div>
-                <Comments postId={postId} userId={userId}/>
+                <Comments postId={postId} />
             </>
         );
     }

@@ -17,9 +17,6 @@ const CommentItem = ({ comment, user }) => {
                 <div className="text">
                     {comment.body}
                 </div>
-                <div className="actions">
-                    <Link to="/" className="reply">Reply</Link>
-                </div>
             </div>
         </div>
     );

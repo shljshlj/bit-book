@@ -10,6 +10,7 @@ export default axios.create({
 });
 
 
+
 class AxiosBuilder {
     get(api, endpoint, options = {}) {
         return api.get(endpoint, options)

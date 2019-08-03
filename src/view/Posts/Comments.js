@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import CommentCreate from './Comments/CommentCreate';
 import CommentList from './Comments/CommentList';
 import { postService } from '../../services/postService';
@@ -7,28 +8,37 @@ import { userService } from '../../services/userService';
 class Comments extends Component {
     state = {
         comments: [],
-        user: null
+        users: []
     }
 
-    fetchCommentsAndUser = async () => {
-        const { postId, userId } = this.props;
+    fetchCommentsAndUsers = async () => {
+        const { postId } = this.props;
         const comments = await postService.fetchSinglePostComments(postId);
-        const user = await userService.fetchSingleUser(userId);
-        this.setState({ comments, user });
+        const commentUserIds = _
+            .chain(comments)
+            .map('userId')
+            .uniq()
+            .value();
+
+        console.log(commentUserIds);
+        const users = await userService.fetchMultipleUsers(commentUserIds);
+
+        console.log(users);
+        this.setState({ comments, users });
     }
 
     componentDidMount() {
-        this.fetchCommentsAndUser();
+        this.fetchCommentsAndUsers();
     }
 
     render() {
-        const { comments, user } = this.state;
+        const { comments, users } = this.state;
 
         return (
             <div className="ui comments">
                 <CommentCreate />
                 <div className="ui section divider"></div>
-                <CommentList comments={comments} user={user} />
+                <CommentList comments={comments} users={users} />
             </div>
         )
     }

@@ -8,7 +8,6 @@ class UserService {
         const response = await bitBookApi.get(endpoint);
 
         const listOfUsers = response.data.map(user => new User(user));
-        console.log(listOfUsers);
         return listOfUsers;
     }
 

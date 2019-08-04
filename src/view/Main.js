@@ -11,7 +11,7 @@ const Main = () => {
             <Switch>
                 <Route exact path="/" component={FeedPage} />
                 <Route path="/posts/:postId" component={SinglePostPage} />
-                <Route exact path="/profile" component={PeoplePage} />
+                <Route exact path="/people" component={PeoplePage} />
                 <Route path="/profile/:userId" component={ProfilePage} />
             </Switch>
         </main>

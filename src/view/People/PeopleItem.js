@@ -5,10 +5,10 @@ const PeopleItem = ({ user }) => {
     return (
         <div className="item">
             <div className="image">
-                <img src={user.avatarUrl} />
+                <img src={user.avatarUrl} alt="user avatar"/>
             </div>
             <div className="content">
-                <Link to={`/people/${user.id}`} className="header">{user.getFullName()}</Link>
+                <Link to={`/profile/${user.id}`} className="header">{user.getFullName()}</Link>
                 <div className="meta">
                     <span>{user.about.job}</span>
                 </div>

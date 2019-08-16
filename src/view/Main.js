@@ -4,6 +4,7 @@ import FeedPage from './Posts/FeedPage';
 import SinglePostPage from './Posts/SinglePostPage';
 import PeoplePage from './People/PeoplePage';
 import ProfilePage from './Profile/ProfilePage';
+import SingleUserPage from './Profile/SingleUserPage';
 
 const Main = () => {
     return (
@@ -12,7 +13,8 @@ const Main = () => {
                 <Route exact path="/" component={FeedPage} />
                 <Route path="/posts/:postId" component={SinglePostPage} />
                 <Route exact path="/people" component={PeoplePage} />
-                <Route path="/profile" component={ProfilePage} />
+                <Route exact path="/profile" component={ProfilePage} />
+                <Route path="/profile/:userId" component={SingleUserPage} />
             </Switch>
         </main>
     );

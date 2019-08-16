@@ -13,9 +13,17 @@ class UserService {
 
     async fetchSingleUser(userId) {
         const endpoint = `/users/${userId}`;
-        const response = await bitBookApi.get(endpoint);
+        const options = {
+            params: {
+                _embed: ["posts", "comments"]
+            }
+        }
+        const response = await bitBookApi.get(endpoint, options);
 
-        const userObj = new User(response.data);
+        const numOfPosts = response.data.posts.length;
+        const numOfComments = response.data.comments.length;
+        const userObj = new User(response.data, numOfPosts, numOfComments);
+        
         return userObj;
     }
 

@@ -6,14 +6,13 @@ import { userService } from '../../services/userService';
 
 import './ProfilePage.css';
 
-class ProfilePage extends Component {
+class SingleUserPage extends Component {
     state = { user: null }
 
     fetchUser = async () => {
-        const userId = 1;
+        const userId = this.props.match.params.userId;
         const user = await userService.fetchSingleUser(userId);
         this.setState({ user });
-        console.log(user);
     }
 
     componentDidMount () {
@@ -35,4 +34,4 @@ class ProfilePage extends Component {
     }
 }
 
-export default ProfilePage;
+export default SingleUserPage;

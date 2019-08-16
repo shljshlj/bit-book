@@ -1,11 +1,11 @@
 import React from 'react';
 
-const ProfileStats = (props) => {
+const ProfileStats = ({ numOfPosts, numOfComments}) => {
     return (
         <div className="ui two statistics">
             <div className="statistic">
                 <div className="value">
-                    22
+                {numOfPosts}
                 </div>
                 <div className="label">
                     Posts
@@ -13,7 +13,7 @@ const ProfileStats = (props) => {
             </div>
             <div className="statistic">
                 <div className="value">
-                    3
+                    {numOfComments}
                 </div>
                 <div className="label">
                     Comments

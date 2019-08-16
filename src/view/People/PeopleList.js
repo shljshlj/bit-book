@@ -7,7 +7,6 @@ class PeopleList extends Component {
 
     fetchUsers = async () => {
         const users = await userService.fetchUsers();
-        console.log(users);
         this.setState({ users });
     }
 

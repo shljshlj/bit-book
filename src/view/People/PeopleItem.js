@@ -5,7 +5,7 @@ const PeopleItem = ({ user }) => {
     return (
         <div className="item">
             <div className="image">
-                <img src={user.avatarUrl} alt="user avatar"/>
+                <img src={user.avatarUrl} alt="user avatar" />
             </div>
             <div className="content">
                 <Link to={`/profile/${user.id}`} className="header">{user.getFullName()}</Link>

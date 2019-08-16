@@ -1,4 +1,13 @@
+.profile-header {
+    padding: 3rem 0;
+}
+
 .profile-header img {
     height: 300px !important;
-    margin: 3rem 0;
+    margin-bottom: 3rem;
+}
+
+.profile-about {
+    width: 70%;
+    margin: 3rem auto;
 }

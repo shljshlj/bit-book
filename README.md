@@ -1,5 +1,5 @@
 ## BitBook
-project
+React project
 
 
 #### Resources

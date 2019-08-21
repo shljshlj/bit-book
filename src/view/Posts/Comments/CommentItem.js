@@ -5,12 +5,12 @@ import { getCalendarTimeFrom } from '../../../shared/utils';
 const CommentItem = ({ comment, user }) => {
     return (
         <div className="comment">
-            <Link to="/" className="avatar">
+            <Link to={`/profile/${user.id}`} className="avatar">
                 <img src={user.avatarUrl} alt="user avatar" />
             </Link>
 
             <div className="content">
-                <Link to={`/people/${user.id}`} className="author">{user.getFullName()}</Link>
+                <Link to={`/profile/${user.id}`} className="author">{user.getFullName()}</Link>
                 <div className="metadata">
                     <span className="date">{getCalendarTimeFrom(comment.createdAt, new Date().toISOString())}</span>
                 </div>

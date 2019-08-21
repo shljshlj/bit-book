@@ -6,9 +6,11 @@ import PeoplePage from './People/PeoplePage';
 import ProfilePage from './Profile/ProfilePage';
 import SingleUserPage from './Profile/SingleUserPage';
 
+import './Main.css';
+
 const Main = () => {
     return (
-        <main className="ui container">
+        <main className="ui container main-content">
             <Switch>
                 <Route exact path="/" component={FeedPage} />
                 <Route path="/posts/:postId" component={SinglePostPage} />

@@ -1,13 +1,27 @@
 .profile-header {
-    padding: 3rem 0;
-}
-
-.profile-header img {
-    height: 300px !important;
-    margin-bottom: 3rem;
 }
 
 .profile-about {
     width: 70%;
     margin: 3rem auto;
+}
+
+.profile-header__avatar-box {
+    background-image: url("/images/abstract-waves.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 30vh;
+    position: relative;
+}
+
+.profile-header__avatar-content {
+    position: absolute;
+    left: 3rem;
+    bottom: -90px;
+}
+
+.profile-header__avatar-content img {
+    height: 180px;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .07);
 }

@@ -9,11 +9,12 @@
 body {
     font-family: sans-serif;
     box-sizing: border-box;
+    background-color: #f5f9fc;
 }
 
 #root {
     min-height: 100vh;
-    display: flex;
+    display: flex !important;
     flex-direction: column;
 }
 

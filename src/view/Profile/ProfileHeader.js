@@ -3,7 +3,11 @@ import React from 'react';
 const ProfileHeader = ({ user }) => {
     return (
         <div className="ui center profile-header">
-            <img className="ui medium centered circular image" src={user.avatarUrl} alt="user avatar" />
+            <div className="profile-header__avatar-box">
+                <div className="ui image profile-header__avatar-content">
+                    <img className="" src={user.avatarUrl} alt={user.getFullName()} />
+                </div>
+            </div>
             <h2 className="ui center aligned header">{user.getFullName()}</h2>
         </div>
     );

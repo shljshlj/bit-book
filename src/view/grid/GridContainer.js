@@ -18,7 +18,7 @@ const GridContainer = ({ numOfColumns, container = false, children }) => {
 };
 
 GridContainer.propTypes = {
-    numOfColumns: PropTypes.string.isRequired
+    numOfColumns: PropTypes.string
 }
 
 export default GridContainer;

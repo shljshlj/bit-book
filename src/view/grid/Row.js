@@ -11,7 +11,7 @@ const Row = ({ numOfColumns = 'one', children }) => {
 };
 
 Row.propTypes = {
-    numOfColumns: PropTypes.string.isRequired
+    numOfColumns: PropTypes.string
 }
 
 

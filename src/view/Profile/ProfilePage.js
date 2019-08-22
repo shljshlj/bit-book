@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import ProfileHeader from './ProfileHeader';
 import ProfileAbout from './ProfileAbout';
 import ProfileStats from './ProfileStats';
+import ModalConductor from '../components/ModalConductor';
 import EditProfileButton from './EditProfile/EditProfileButton';
-import EditProfileModal from './EditProfile/EditProfileModal';
 
 import { userService } from '../../services/userService';
 
@@ -13,8 +13,24 @@ import GridContainer from '../grid/GridContainer';
 import Row from '../grid/Row';
 import Column from '../grid/Column';
 
+import $ from 'jquery';
+
 class ProfilePage extends Component {
-    state = { user: null }
+    state = {
+        user: null,
+        modalOpen: false
+    }
+
+    showModal = () => {
+        this.setState({ modalOpen: true });
+        $('.ui.modal')
+            .modal()
+            ;
+    }
+
+    hideModal = () => {
+        this.setState({ modalOpen: false });
+    }
 
     fetchUser = async () => {
         const userId = 1;
@@ -49,8 +65,12 @@ class ProfilePage extends Component {
                         </Column>
                     </Row>
                 </GridContainer>
-                <EditProfileButton />
-                <EditProfileModal />
+                <EditProfileButton openModal={this.showModal} />
+                <ModalConductor
+                    currentModal="EDIT_PROFILE"
+                    modalOpen={this.state.modalOpen}
+                    hideModal={this.hideModal}
+                />
             </div>
         );
     }

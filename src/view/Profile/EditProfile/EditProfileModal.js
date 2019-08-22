@@ -1,25 +1,26 @@
 import React from 'react';
+import ModalWrapper from '../../components/ModalWrapper';
 
-const EditProfileModal = (props) => {
+const EditProfileModal = props => {
     return (
-        <div className="ui modal edit-profile-modal">
-            <i className="close icon"></i>
-            <div className="header">
-                Modal Title
-            </div>
-            <div className="image content">
-                <div className="image">
-                    An image can appear on left or an icon
+        <ModalWrapper
+            {...props}
+            title="Update Profile"
+        >
+            <div className="ui form">
+                <div className="ui small image">
+                    <img src="http://via.placeholder.com/150" />
                 </div>
-                <div className="description">
-                    A description can appear on the right
+                <div className="field">
+                    <label>Full Name</label>
+                    <input type="text" name="full-name" placeholder="Full Name" />
+                </div>
+                <div className="field">
+                    <label>Bio</label>
+                    <textarea rows="2"></textarea>
                 </div>
             </div>
-            <div className="actions">
-                <div className="ui button">Cancel</div>
-                <div className="ui button">OK</div>
-            </div>
-        </div>
+        </ModalWrapper>
     );
 };
 

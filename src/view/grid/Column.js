@@ -10,7 +10,7 @@ const Column = ({ numOfColumns, children }) => {
 };
 
 Column.propTypes = {
-    numOfColumns: PropTypes.string.isRequired
+    numOfColumns: PropTypes.string
 }
 
 export default Column;

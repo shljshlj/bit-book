@@ -3,8 +3,7 @@ React project
 
 
 #### Resources
-1. [DateTime manipulation](https://www.toptal.com/software/definitive-guide-to-datetime-manipulation)
-Detailed article about working with `Date` object
+1. Detailed article about working with `Date` object [DateTime manipulation](https://www.toptal.com/software/definitive-guide-to-datetime-manipulation)
 2. Modals with React
     - [Implementing a Simple Modal Component in React](https://alligator.io/react/modal-component/)
     - Modal manager component

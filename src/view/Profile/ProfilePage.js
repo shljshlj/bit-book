@@ -13,7 +13,6 @@ import GridContainer from '../grid/GridContainer';
 import Row from '../grid/Row';
 import Column from '../grid/Column';
 
-import $ from 'jquery';
 
 class ProfilePage extends Component {
     state = {
@@ -23,9 +22,6 @@ class ProfilePage extends Component {
 
     showModal = () => {
         this.setState({ modalOpen: true });
-        $('.ui.modal')
-            .modal()
-            ;
     }
 
     hideModal = () => {

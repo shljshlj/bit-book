@@ -1,15 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './ModalWrapper.css';
+
 const ModalWrapper = props => {
     const handleBackgroundClick = e => {
-        if (e.target === e.currentTarger) props.hideModal();
+        if (e.target === e.currentTarget) props.hideModal();
     };
 
     const onSubmit = () => {
         props.onSubmit();
         props.hideModal();
     };
+
+    const openCloseClassName = props.modalOpen ? 'modal-wrapper active' : 'modal-wrapper';
 
     const actionButtons = props.showSubmit
         ? (
@@ -27,8 +31,8 @@ const ModalWrapper = props => {
         ) : null;
 
     return (
-        <div className="ui dimmer modals page transition visible active" onClick={handleBackgroundClick}>
-            <div className="ui modal transition visible active">
+        <div className={openCloseClassName} onClick={handleBackgroundClick}>
+            <div className="ui modal modal-content">
                 <header className="header">
                     <h1>{props.title}</h1>
 

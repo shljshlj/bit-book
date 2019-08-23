@@ -1,10 +1,10 @@
 import React from 'react';
 
-const EditProfileButton = props => {
+const EditProfileButton = ({ openModal }) => {
     return (
         <button
             className="ui primary basic button"
-            onClick={props.openModal}
+            onClick={openModal}
         >
             <i className="edit outline icon"></i>
             Edit Profile

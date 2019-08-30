@@ -9,7 +9,7 @@
 body {
     font-family: sans-serif;
     box-sizing: border-box;
-    background-color: #f5f9fc;
+    /* background-color: #f5f9fc; */
 }
 
 #root {
